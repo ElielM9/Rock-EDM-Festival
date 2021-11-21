@@ -1,0 +1,62 @@
+@use "base/variables" as v;
+@use "mixins/mixins" as m;
+@use "mixins/grid" as g;
+@use "mixins/resetList" as r;
+
+.boletos {
+  padding: 5rem 0;
+  h3 {
+    text-align: center;
+    color: v.$blanco;
+    margin-bottom: 2rem
+  }
+  .boletos__container {
+    @include m.tablet {
+      @include g.grid(2, 5rem);
+    }
+  }
+}
+
+.pase {
+  .pase__name {
+    color: v.$blanco;
+    font-size: 2.4rem;
+    text-align: center;
+  }
+  &__header,
+  &__footer {
+    p {
+      text-align: center;
+      color: v.$blanco;
+      padding: 0.5rem;
+      margin: 0;
+    }
+  }
+  &__header {
+    background-color: v.$rosa;
+    p {
+      text-transform: uppercase;
+      font-size: 1.6rem;
+    }
+  }
+  &__body {
+    background-color: v.$blanco;
+    ul {
+      @include r.resetList;
+      li,
+      :nth-child(odd) {
+        color: v.$negro;
+        background-color: v.$blanco;
+        padding: 1rem;
+        border-bottom: 1px solid #e1e1e1;
+      }
+    }
+  }
+  &__footer {
+    background-color: v.$morado;
+    p {
+      font-size: 2.4rem;
+      font-weight: bold;
+    }
+  }
+}

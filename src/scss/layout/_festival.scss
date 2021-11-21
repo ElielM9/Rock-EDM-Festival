@@ -1,0 +1,27 @@
+@use "base/variables" as v;
+@use "mixins/mixins" as m;
+@use "mixins/grid" as g;
+
+.festival {
+  padding: 5rem;
+  @include m.tablet {
+    @include g.grid(2, 5rem);
+  }
+}
+
+.content__festival {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 5rem;
+  @include m.tablet {
+    margin-top: 0;
+  }
+  h2 {
+    margin-bottom: 2rem;
+  }
+  .date {
+    color: v.$rosa;
+    font-weight: bold;
+  }
+}

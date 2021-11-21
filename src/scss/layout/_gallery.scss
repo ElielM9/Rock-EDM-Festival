@@ -1,0 +1,58 @@
+@use "base/variables" as v;
+@use "mixins/mixins" as m;
+@use "mixins/grid" as g;
+@use "mixins/resetList" as r;
+
+.gallery {
+  padding: 5rem 0;
+  h3 {
+    text-align: center;
+  }
+}
+
+.gallery__img {
+  @include r.resetList;
+  @include g.grid(2, 2rem);
+  @include m.phone {
+    @include g.grid(3, 2rem);
+  }
+  @include m.tablet {
+    @include g.grid(4, 2rem);
+  }
+  @include m.escritorio {
+    @include g.grid(6, 2rem);
+  }
+}
+
+.overlay {
+  display: grid;
+  place-items: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: 0.2s ease-in-out;
+  picture {
+    display: block;
+    max-width: 80rem;
+    transition: 0.2s ease-in-out;
+  }
+}
+
+.btnClose {
+  display: grid;
+  place-items: center;
+  height: 4rem;
+  width: 4rem;
+  font-weight: bold;
+  color: v.$negro;
+  border-radius: 50%;
+  background-color: v.$blanco;
+  &:hover {
+    cursor: pointer;
+  }
+}
