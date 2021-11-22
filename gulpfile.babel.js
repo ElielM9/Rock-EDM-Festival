@@ -15,7 +15,11 @@ const webp = require(`gulp-webp`);
 const avif = require(`gulp-avif`);
 
 //JAVASCRIPT
+const babel = require(`gulp-babel`);
 const terser = require(`gulp-terser-js`);
+
+//CONCAT
+const concat = require(`gulp-concat`);
 
 function css(done) {
   src(`src/scss/**/*.scss`) //Identificar el archivo sass a compilar
@@ -68,6 +72,8 @@ function vAvif(done) {
 function javaScript(done) {
   src(`src/js/**/*.js`)
     .pipe(sourcemaps.init())
+    .pipe(concat("scripts-min.js"))
+    .pipe(babel())
     .pipe(terser())
     .pipe(sourcemaps.write())
     .pipe(dest(`public/js`));
