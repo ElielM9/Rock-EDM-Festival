@@ -98,4 +98,4 @@ function showImg(id) {
   const body = document.querySelector(`body`);
   body.appendChild(overlay);
   body.classList.add(`fijar`);
-}
+};
